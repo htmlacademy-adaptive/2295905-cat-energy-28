@@ -15,3 +15,31 @@
 .page-footer__academy-name {
   margin-right: 141px;
 }
+
+.page-footer {
+  display: flex;
+  flex-direction: column;
+}
+
+@media only screen and (min-width: 768px) {
+  .page-footer {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .page-footer__social-list {
+    margin-left: 145px;
+    margin-right: 135px;
+  }
+
+  .page-footer__academy-name {
+    margin-right: 28px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .page-footer {
+    display: flex;
+    justify-content: space-between;
+  }
+}

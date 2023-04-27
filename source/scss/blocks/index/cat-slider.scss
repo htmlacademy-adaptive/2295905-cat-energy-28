@@ -20,6 +20,7 @@
   font-weight: 400;
   font-size: 24px;
   line-height: 24px;
+  border: 1px solid #cdcdcd;
 }
 
 .cat-slider__product-benefits-info {
@@ -28,6 +29,7 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 100%;
+  flex-wrap: wrap;
 }
 
 .cat-slider__product-costing {
@@ -38,4 +40,23 @@
   line-height: 20px;
   text-transform: uppercase;
   color: #000000;
+}
+
+.cat-slider__main-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  list-style: none;
+  gap: 30px;
+}
+
+.page-slider-button {
+  border: none;
+  background: none;
+}
+
+@media (min-width: 1280px) {
+  .cat-slider__infomation {
+    width: 100%;
+    max-width: 436px;
+  }
 }
