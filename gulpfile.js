@@ -40,14 +40,14 @@ const scripts = () => {
 };
 
 // Images
-const optimizeImages = () => {
+export const optimizeImages = () => {
   return gulp
     .src("source/img/**/*.{jpg,png}")
     .pipe(squoosh())
     .pipe(gulp.dest("build/img"));
 };
 
-const copyImages = () => {
+export const copyImages = () => {
   return gulp.src("source/img/**/*.{jpg,png}").pipe(gulp.dest("build/img"));
 };
 
@@ -64,19 +64,15 @@ const createWebp = () => {
 };
 
 // SVGSprite
-const svg = () => {
+export const svg = () => {
   return gulp.src("source/img/*.svg").pipe(svgo()).pipe(gulp.dest("build/img"));
 };
 
-const sprite = () => {
+export const sprite = () => {
   return gulp
     .src("source/img/*.svg")
     .pipe(svgo())
-    .pipe(
-      svgstore({
-        inlineSvg: true,
-      })
-    )
+    .pipe(svgstore({}))
     .pipe(rename("sprite.svg"))
     .pipe(gulp.dest("build/img"));
 };
@@ -132,7 +128,8 @@ const server = (done) => {
 
 const watcher = () => {
   gulp.watch("source/scss/**/*.scss", gulp.series(styles));
-  gulp.watch("source/script.js"), gulp.series(scripts);
+  gulp.watch("source/script.js", gulp.series(scripts));
+  gulp.watch("source/*.html", gulp.series(html));
   gulp.watch("source/*.html").on("change", browser.reload);
 };
 
